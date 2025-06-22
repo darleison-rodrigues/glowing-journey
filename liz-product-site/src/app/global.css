@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Global styles for the Luminous Tech theme.
+  Sets primary background and text colors for the body.
+*/
+body {
+  /* Applying the primary background color from our new palette */
+  background-color: theme('colors.light-slate-blue');
+  /* Applying the primary text color */
+  color: theme('colors.dark-charcoal');
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+/* You might want to define a custom scrollbar for modern feel (optional) */
+/*
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: theme('colors.light-slate-blue');
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: theme('colors.electric-blue');
+  border-radius: 20px;
+  border: 2px solid theme('colors.light-slate-blue');
+}
+*/
+
+/*
+  Custom CSS for the navigation links in the header.
+  This allows for more complex hover effects than pure Tailwind utilities.
+  We moved this from the <style jsx> block in Header.tsx.
+*/
+@layer components {
+  .nav-link {
+    @apply relative text-dark-charcoal font-semibold text-lg py-2 px-1 transition-all duration-300 ease-in-out;
+  }
+  .nav-link:hover {
+    @apply text-electric-blue; /* Change text color on hover */
+  }
+  /* Underline effect for nav links */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: theme('colors.electric-blue'); /* Solid color underline */
+    transition: width 0.3s ease-in-out;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after { /* Add '.active' class if you implement dynamic active state */
+    width: calc(100% - 8px); /* Adjust based on desired padding/spacing */
+  }
+
+  /* Specific style for a contact button within the nav (if used there, now in Header.tsx directly) */
+  .nav-button {
+    @apply bg-electric-blue text-pure-white px-6 py-2 rounded-full shadow-smooth hover:bg-amethyst-purple hover:shadow-lg-smooth transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+
+  /* Mobile navigation links */
+  .mobile-nav-link {
+    @apply text-dark-charcoal text-xl font-medium block py-2 hover:text-electric-blue transition-colors duration-200;
+  }
+  /* Mobile contact button */
+  .mobile-nav-button {
+    @apply bg-electric-blue text-pure-white px-8 py-3 rounded-full shadow-smooth mt-4 hover:bg-amethyst-purple transition-all duration-300;
+  }
+}
+
+/* Keyframe animations - if used, define them here */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+/* Blob animation for hero section */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite cubic-bezier(0.6, 0.01, 0.2, 1);
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+
+/* General Link styling (for non-nav links, if needed) */
+a {
+  @apply text-electric-blue hover:text-amethyst-purple transition-colors duration-200;
+}

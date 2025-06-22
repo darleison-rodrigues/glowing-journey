@@ -1,0 +1,13 @@
+<svg width="350" height="70" viewBox="0 0 350 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iqGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#007BFF" /> <stop offset="50%" stop-color="#8A2BE2" /> <stop offset="100%" stop-color="#FC72C1" /> </linearGradient>
+  </defs>
+
+  <text x="10" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1A202C">Embbed</text>
+
+  <text x="165" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="url(#iqGradient)">IQ</text>
+
+  <text x="225" y="45" font-family="Arial, sans-serif" font-size="18" fill="#4A5568">Inc.</text>
+
+  </svg>
